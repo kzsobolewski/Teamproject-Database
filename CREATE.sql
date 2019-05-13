@@ -1,25 +1,6 @@
 DROP TABLE Logs;
 DROP TABLE Devices;
 
--- Table: Devices
-CREATE TABLE Devices (
-    id_device integer NOT NULL CONSTRAINT Devices_pk PRIMARY KEY AUTOINCREMENT UNIQUE,
-    type text NOT NULL,
-    title text NOT NULL UNIQUE,
-    value real NOT NULL,
-    port integer NOT NULL UNIQUE
-);
-
--- Table: Logs
-CREATE TABLE Logs (
-    id_log integer NOT NULL CONSTRAINT Logs_pk PRIMARY KEY AUTOINCREMENT UNIQUE,
-    time text NOT NULL,
-    value blob NOT NULL,
-    id_device integer NOT NULL,
-    CONSTRAINT Logs_Devices FOREIGN KEY (id_device)
-    REFERENCES Devices (id_device)
-);
-
 -- Insertion examples
 
 INSERT INTO Devices (type, title, value, port)

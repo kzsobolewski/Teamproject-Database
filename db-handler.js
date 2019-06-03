@@ -1,10 +1,13 @@
 var sqlite3 = require('sqlite3').verbose();
-var db = new sqlite3.Database("mainDB.db", err => {
+var db;
+
+function connect(db_name){
+db =  new sqlite3.Database(db_name, err => {
     if (err)
         return console.log(err.message);
     console.log("Connected to DB");
 });
-
+}
 
 function getDevices(fn) {
     db.each("SELECT * FROM Devices", (err, row) => {
@@ -79,6 +82,7 @@ function updateDevice(json, fn) {
                 return fn(errorJson);
             }
             console.log('Device updated.');
+            addLog(json["data"]["id_device"], `Device updated: new value: ` + json["data"]["value"] );
             return fn(json);
         });
 }
@@ -126,6 +130,7 @@ function getAllLogs( fn){
 
 // exporting functions 
 module.exports = {
+    connect:connect,
     getDevices: getDevices,
     createDevice: createDevice,
     deleteDevice: deleteDevice,

@@ -1,6 +1,8 @@
 // module for using DB functions
 var dbHandler = require('./db-handler');
 
+dbHandler.connect('mainDB.db')
+
 // types enum
 const type = {
     UPDATE_DEVICE: 'UPDATE_DEVICE',
@@ -57,19 +59,19 @@ switch (exRequestData["type"]) {
 
 // Logs functions
 
-// input id_device and log message
- dbHandler.addLog(2, "Test log");
+// // input id_device and log message
+//  dbHandler.addLog(2, "Test log");
 
- // returns json with logs in callback func
- dbHandler.getAllLogs(json =>{
-     console.log(json);
- });
+//  // returns json with logs in callback func
+//  dbHandler.getAllLogs(json =>{
+//      console.log(json);
+//  });
 
- // returns json with logs of a device in callback func
- // input id_device
-dbHandler.getDeviceLogs(3, (json) => {
-    console.log(json);
-});
+//  // returns json with logs of a device in callback func
+//  // input id_device
+// dbHandler.getDeviceLogs(3, (json) => {
+//     console.log(json);
+// });
 
 
 

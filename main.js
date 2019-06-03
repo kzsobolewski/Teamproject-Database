@@ -55,14 +55,19 @@ switch (exRequestData["type"]) {
         console.log("Incorrect json type");
 }
 
-// dbHandler.addLog(2, "Test log");
+// Logs functions
 
-// dbHandler.getAllLogs(json =>{
-//     console.log(json);
-// });
+ dbHandler.addLog(2, "Test log");
+
+ dbHandler.getAllLogs(json =>{
+     console.log(json);
+ });
 
 dbHandler.getDeviceLogs(3, (json) => {
     console.log(json);
 });
+
+
+
 
 dbHandler.close();

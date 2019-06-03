@@ -16,10 +16,10 @@ var exRequestData =
     data:
     {
         id_device: 2,
-        type: 'in',
+        type: 'out',
         title: 'diode_2',
-        value: 0.001,
-        port: 69
+        value: 1,
+        port: 15
     },
     type: type.UPDATE_DEVICE
 };
@@ -55,5 +55,14 @@ switch (exRequestData["type"]) {
         console.log("Incorrect json type");
 }
 
+// dbHandler.addLog(2, "Test log");
+
+// dbHandler.getAllLogs(json =>{
+//     console.log(json);
+// });
+
+dbHandler.getDeviceLogs(3, (json) => {
+    console.log(json);
+});
 
 dbHandler.close();

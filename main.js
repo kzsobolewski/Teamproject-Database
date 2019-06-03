@@ -57,12 +57,16 @@ switch (exRequestData["type"]) {
 
 // Logs functions
 
+// input id_device and log message
  dbHandler.addLog(2, "Test log");
 
+ // returns json with logs in callback func
  dbHandler.getAllLogs(json =>{
      console.log(json);
  });
 
+ // returns json with logs of a device in callback func
+ // input id_device
 dbHandler.getDeviceLogs(3, (json) => {
     console.log(json);
 });
